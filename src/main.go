@@ -36,7 +36,7 @@ func readFileContent(fileName string) (string, bool) {
 // if the length of the os arguments
 // is greater than 0
 func parseArgumentsExecution(args []string) string {
-	// the lenght of the os arguments
+	// the length of the os arguments
 	var argumentLength int = len(args)
 	if argumentLength != 0 {
 
