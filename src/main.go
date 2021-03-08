@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 )
 
 // parse the code
 func parsePunchCode(code string){
+	fmt.Println(code)
 }
 
 // check if the file exists
@@ -22,12 +22,17 @@ func fileExists(path string) bool {
 // return the filename along with false
 func readFileContent(fileName string) (string, bool) {
 	if fileExists(fileName) {
-		fileContent, err := ioutil.ReadFile(fileName)
-		if err != nil {
-			log.Fatal("Failed to read the file")
-		} else {
-			return string(fileContent), true
-		}
+		b, err := ioutil.ReadFile(string(fileName))
+    	// can file be opened?
+    	if err != nil {
+    	  fmt.Println(err)
+    	}
+	
+    	// convert bytes to string
+    	str := string(b)
+	
+    	// return file data
+    	return str, true
 	}
 	return fileName, false
 }
@@ -42,7 +47,7 @@ func parseArgumentsExecution(args []string) string {
 
 		// this is the file content , along with the 
 		// result of readFileContent(true/false)
-		content, readText = readFileContent(args[0])
+		content, readText := readFileContent(args[0])
 		if readText == false {
 			os.Exit(3)
 		} else {
@@ -59,8 +64,8 @@ func main() {
 
 	arguments := parseArgumentsExecution(cliArguments)
 	if arguments == "nil" {
-
+		os.Exit(3)
 	} else {
-		fmt.Println(arguments)
+		os.Exit(0)
 	}
 }
