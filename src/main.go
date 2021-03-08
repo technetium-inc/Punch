@@ -9,11 +9,32 @@ import (
 
 // parse the code
 func parsePunchCode(code string) {
-	statements := strings.Split(code, ";")
+	lives := 100
+	statements := strings.Split(code, ";\r\n")
 	for _, statement := range statements {
 		tokens := strings.Split(statement, " ")
-        if tokens[0] == "Uppercut[str]" {
-			fmt.Println(tokens[1])
+		switch tokens[0] {
+		case "TrashTalkLn[str]":
+			lives -= 5
+			if lives > 0 {
+				fmt.Println(strings.Replace(strings.Trim(tokens[1], "\""), "\\s", " ", -1))
+			}
+
+		case "TrashTalk[str]":
+			lives -= 5
+			if lives > 0 {
+				fmt.Print(strings.Replace(strings.Trim(tokens[1], "\""), "\\s", " ", -1))
+			}
+		case "TrashTalk[int]":
+			lives -= 5
+			if lives > 0 {
+				fmt.Print(tokens[1])
+			}
+		case "TrashTalkLn[int]":
+			lives -= 5
+			if lives > 0 {
+				fmt.Println(tokens[1])
+			}
 		}
     }
 }

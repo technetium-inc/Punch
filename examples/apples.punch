@@ -1,2 +1,6 @@
-Uppercut[str] "Apples";
-Uppercut[str] "I like Apples only if they are the only fruit I can have.";
+TrashTalkLn[str] "Apples";
+TrashTalk[str] "I";
+TrashTalk[str] "\slike";
+TrashTalk[str] "\sapples\s";
+TrashTalk[int] 80;
+TrashTalk[str] "%";
