@@ -4,11 +4,18 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strings"
 )
 
 // parse the code
-func parsePunchCode(code string){
-	fmt.Println(code)
+func parsePunchCode(code string) {
+	statements := strings.Split(code, ";")
+	for _, statement := range statements {
+		tokens := strings.Split(statement, " ")
+        if tokens[0] == "Uppercut[str]" {
+			fmt.Println(tokens[1])
+		}
+    }
 }
 
 // check if the file exists
