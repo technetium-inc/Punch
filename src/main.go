@@ -78,7 +78,8 @@ func Punch(code string) {
 			if lives > 0 {
 				fmt.Println(symTab[tokens[1]])
 			}
-    }
+    	}
+	}
 }
 
 // check if the file exists

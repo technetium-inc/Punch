@@ -14,6 +14,8 @@
  
  All statements must end with a semicolon and there ***must*** be a newline at the end of you file.
 
+ In addition to the basic syntax, you also need to know about the lives system. Every program in Punch starts out with 100 lives and every statement that you type takes away from that number. anything to do with stdout (TrashTalk & TrashTalkLn) is worth 5 and variable assignments (FaceSlap) are worth 4.
+
 ## Downloads
 ### [1.0.0](https://github.com/technetium-inc/Punch/releases/tag/v1.0.0)
 [Windows](https://github.com/technetium-inc/Punch/releases/download/v1.0.0/punch.exe)
