@@ -63,7 +63,7 @@ func Punch(code string) {
 			if lives > 0 {
 				fmt.Println(tokens[1])
 			}
-		case "FaceSlap":
+		case "FaceSlap[var,int]":
 			lives -= 4
 			if lives > 0 {
 				symTab[tokens[1]], _ = strconv.Atoi(tokens[2])
