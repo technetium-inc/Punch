@@ -5,11 +5,39 @@ import (
 	"io/ioutil"
 	"os"
 	"strings"
+	"strconv"
 )
 
 // parse the code
-func parsePunchCode(code string) {
+func Punch(code string) {
 	lives := 100
+	symTab := map[string]int{
+		"a": 0,
+		"b": 0,
+		"c": 0,
+		"d": 0,
+		"e": 0,
+		"f": 0,
+		"g": 0,
+		"h": 0,
+		"i": 0,
+		"j": 0,
+		"k": 0,
+		"l": 0,
+		"m": 0,
+		"n": 0,
+		"o": 0,
+		"p": 0,
+		"q": 0,
+		"r": 0,
+		"s": 0,
+		"t": 0,
+		"u": 0,
+		"v": 0,
+		"w": 0,
+		"x": 0,
+		"y": 0,
+	}
 	statements := strings.Split(code, ";\r\n")
 	for _, statement := range statements {
 		tokens := strings.Split(statement, " ")
@@ -35,7 +63,21 @@ func parsePunchCode(code string) {
 			if lives > 0 {
 				fmt.Println(tokens[1])
 			}
-		}
+		case "FaceSlap":
+			lives -= 4
+			if lives > 0 {
+				symTab[tokens[1]], _ = strconv.Atoi(tokens[2])
+			}
+		case "TrashTalk[var]":
+			lives -= 5
+			if lives > 0 {
+				fmt.Print(symTab[tokens[1]])
+			}
+		case "TrashTalkLn[var]":
+			lives -= 5
+			if lives > 0 {
+				fmt.Println(symTab[tokens[1]])
+			}
     }
 }
 
@@ -53,7 +95,7 @@ func readFileContent(fileName string) (string, bool) {
 		b, err := ioutil.ReadFile(string(fileName))
     	// can file be opened?
     	if err != nil {
-    	  fmt.Println(err)
+    	    fmt.Println(err)
     	}
 	
     	// convert bytes to string
@@ -79,7 +121,7 @@ func parseArgumentsExecution(args []string) string {
 		if readText == false {
 			os.Exit(3)
 		} else {
-			parsePunchCode(content)
+			Punch(content)
 		}
 		return args[0]
 	}
