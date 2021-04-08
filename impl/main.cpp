@@ -1,8 +1,40 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
+vector<string> split(string str, const char *del) {
+    vector<string> data;
+    string current_string = "";
+    for(int x=0; x < str.length(); x++){
+        if(str[x] == *del){
+            data.push_back(current_string);
+            current_string = "";
+            continue;
+        }
+        current_string += str[x];
+    }
+    return data;
+}
+
+string remove_characters(string data, const char *character) {
+    string current_string;
+    for(int index=0; index<data.length(); index++){
+        if(data[index] != *character){
+            current_string += data[index];
+        }
+    }
+    return current_string;
+}
+
+void run_punch_code(string data) {
+    vector<string> tokens = split(data, ";");
+    for(int tokenIndex=0; tokenIndex<tokens.size(); tokenIndex++){
+        vector<string> current_token = split(tokens[tokenIndex], " ");
+        
+    }
+}
 
 string find_filename(string filename) {
     string file_text;
@@ -33,6 +65,6 @@ int main(int argc, char *argv[]){
         );
     } else {
         string file_content = find_filename(argv[1]);
-        cout << file_content;
+        run_punch_code(file_content);
     }
 }
