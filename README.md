@@ -1,5 +1,8 @@
 # Punch
  An esolang.
+ 
+## Credits
+The syntax was heavily inspired by [This language right here](https://github.com/FreakC-Foundation/FreakC). Check it out!!
 
 ## Syntax
  Like [Titanium](https://github.com/JavaCode7/Titanium), Punch runs on commands. What makes it different is the lack of flow control in the latter and the lack of variable definition in the former. The 7 commands that Punch has are detailed here:
